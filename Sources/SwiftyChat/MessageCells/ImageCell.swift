@@ -107,7 +107,7 @@ internal struct ImageCell<Message: ChatMessage>: View {
     
     @ViewBuilder public var body: some View {
         imageView
-            .background(cellStyle.cellBackgroundColor)
+            .background(AnyShapeStyle(cellStyle.cellBackground))
             .cornerRadius(cellStyle.cellCornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: cellStyle.cellCornerRadius)

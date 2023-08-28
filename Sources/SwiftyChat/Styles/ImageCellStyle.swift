@@ -12,7 +12,7 @@ public struct ImageCellStyle: CommonViewStyle {
     public var cellWidth: (CGSize) -> CGFloat
     
     // MARK: - CellContainerStyles
-    public let cellBackgroundColor: Color
+    public let cellBackground: any ShapeStyle
     public let cellCornerRadius: CGFloat
     public let cellBorderColor: Color
     public let cellBorderWidth: CGFloat
@@ -21,7 +21,7 @@ public struct ImageCellStyle: CommonViewStyle {
     
     public init(
         cellWidth: @escaping (CGSize) -> CGFloat = { $0.width * (UIDevice.isLandscape ? 0.4 : 0.75) },
-        cellBackgroundColor: Color = Color.secondary.opacity(0.1),
+        cellBackground: any ShapeStyle = Color.secondary.opacity(0.1),
         cellCornerRadius: CGFloat = 8,
         cellBorderColor: Color = .clear,
         cellBorderWidth: CGFloat = 0,
@@ -29,7 +29,7 @@ public struct ImageCellStyle: CommonViewStyle {
         cellShadowColor: Color = .secondary
     ) {
         self.cellWidth = cellWidth
-        self.cellBackgroundColor = cellBackgroundColor
+        self.cellBackground = cellBackground
         self.cellCornerRadius = cellCornerRadius
         self.cellBorderColor = cellBorderColor
         self.cellBorderWidth = cellBorderWidth

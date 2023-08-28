@@ -105,10 +105,8 @@ internal struct ContactCell<Message: ChatMessage>: View {
             
         }
         .frame(width: cardWidth)
-        .background(
-            cellStyle.cellBackgroundColor
-                .cornerRadius(cellStyle.cellCornerRadius)
-        )
+        .background(AnyShapeStyle(cellStyle.cellBackground))
+        .cornerRadius(cellStyle.cellCornerRadius)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(

@@ -41,7 +41,7 @@ internal struct TextCell<Message: ChatMessage>: View {
             .lineLimit(nil)
             .foregroundColor(cellStyle.textStyle.textColor)
             .padding(cellStyle.textPadding)
-            .background(cellStyle.cellBackgroundColor)
+            .background(AnyShapeStyle(cellStyle.cellBackground))
             .clipShape(RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners)
             )
             .overlay(
@@ -89,7 +89,7 @@ internal struct TextCell<Message: ChatMessage>: View {
         }
         .frame(width: textWidth, height: textHeight)
         .padding(cellStyle.textPadding)
-        .background(cellStyle.cellBackgroundColor)
+        .background(AnyShapeStyle(cellStyle.cellBackground))
         .clipShape(RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners))
         .overlay(
             RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners)

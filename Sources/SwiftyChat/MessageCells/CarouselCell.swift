@@ -110,7 +110,7 @@ internal struct CarouselItemView: View {
             }
             
         }
-        .background(cellStyle.cellBackgroundColor)
+        .background(AnyShapeStyle(cellStyle.cellBackground))
         .frame(width: itemWidth)
         .cornerRadius(cellStyle.cellCornerRadius)
         .overlay(

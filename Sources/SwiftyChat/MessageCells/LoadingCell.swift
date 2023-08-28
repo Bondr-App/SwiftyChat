@@ -29,7 +29,7 @@ internal struct LoadingCell<Message: ChatMessage>: View {
             .frame(height: 42)
             .foregroundColor(cellStyle.textStyle.textColor)
             .padding(.horizontal, cellStyle.textPadding)
-            .background(cellStyle.cellBackgroundColor)
+            .background(AnyShapeStyle(cellStyle.cellBackground))
             .clipShape(RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners))
             .overlay(
                 

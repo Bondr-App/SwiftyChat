@@ -14,7 +14,7 @@ public struct ContactCellStyle: CommonViewStyle {
     public let fullNameLabelStyle: CommonTextStyle
     
     // MARK: - CellContainerStyle
-    public let cellBackgroundColor: Color
+    public let cellBackground: any ShapeStyle
     public let cellCornerRadius: CGFloat
     public let cellBorderColor: Color
     public let cellBorderWidth: CGFloat
@@ -33,7 +33,7 @@ public struct ContactCellStyle: CommonViewStyle {
             font: .body,
             fontWeight: .semibold
         ),
-        cellBackgroundColor: Color = Color.secondary.opacity(0.05),
+        cellBackground: any ShapeStyle = Color.secondary.opacity(0.05),
         cellCornerRadius: CGFloat = 8,
         cellBorderColor: Color = .clear,
         cellBorderWidth: CGFloat = 1,
@@ -43,7 +43,7 @@ public struct ContactCellStyle: CommonViewStyle {
         self.cellWidth = cellWidth
         self.imageStyle = imageStyle
         self.fullNameLabelStyle = fullNameLabelStyle
-        self.cellBackgroundColor = cellBackgroundColor
+        self.cellBackground = cellBackground
         self.cellCornerRadius = cellCornerRadius
         self.cellBorderColor = cellBorderColor
         self.cellBorderWidth = cellBorderWidth

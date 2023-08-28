@@ -52,7 +52,7 @@ internal struct ImageTextCell<Message: ChatMessage>: View {
                 .foregroundColor(cellStyle.textStyle.textColor)
                 .padding(cellStyle.textPadding)
         }
-        .background(cellStyle.cellBackgroundColor)
+        .background(AnyShapeStyle(cellStyle.cellBackground))
         
         .clipShape(RoundedCornerShape(radius: cellStyle.cellCornerRadius, corners: cellStyle.cellRoundedCorners))
         .overlay(

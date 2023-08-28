@@ -16,7 +16,7 @@ public struct TextCellStyle: CommonViewStyle {
     public let attributedTextStyle: AttributedTextStyle
     
     // MARK: - CellContainerStyle
-    public let cellBackgroundColor: Color
+    public let cellBackground: any ShapeStyle
     public let cellCornerRadius: CGFloat
     public let cellBorderColor: Color
     public let cellBorderWidth: CGFloat
@@ -32,7 +32,7 @@ public struct TextCellStyle: CommonViewStyle {
         ),
         textPadding: CGFloat = 10,
         attributedTextStyle: AttributedTextStyle = AttributedTextStyle(),
-        cellBackgroundColor: Color = Color(UIColor.systemPurple).opacity(0.8),
+        cellBackground: any ShapeStyle = Color(UIColor.systemPurple).opacity(0.8),
         cellCornerRadius: CGFloat = 8,
         cellBorderColor: Color = .clear,
         cellBorderWidth: CGFloat = 1,
@@ -43,7 +43,7 @@ public struct TextCellStyle: CommonViewStyle {
         self.textStyle = textStyle
         self.textPadding = textPadding
         self.attributedTextStyle = attributedTextStyle
-        self.cellBackgroundColor = cellBackgroundColor
+        self.cellBackground = cellBackground
         self.cellCornerRadius = cellCornerRadius
         self.cellBorderColor = cellBorderColor
         self.cellBorderWidth = cellBorderWidth
