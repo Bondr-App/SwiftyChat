@@ -12,6 +12,7 @@ import SwiftUIEKtensions
 public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
     
     @Binding private var messages: [Message]
+    private var headerView: () -> AnyView = { EmptyView().embedInAnyView() }
     private var inputView: () -> AnyView
     private var customCellView: ((Any) -> AnyView)?
     
@@ -64,6 +65,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
         ScrollView(.vertical, showsIndicators: false) {
             ScrollViewReader { proxy in
                 LazyVStack {
+                    headerView()
                     ForEach(messages) { message in
                         let showDateheader = shouldShowDateHeader(
                             messages: messages,
@@ -235,7 +237,8 @@ public extension ChatView {
         shouldShowGroupChatHeaders: Bool = false,
         inputView: @escaping () -> AnyView,
         inset: EdgeInsets = .init(),
-        reachedTop: (() -> Void)? = nil
+        reachedTop: (() -> Void)? = nil,
+        headerView: (() -> AnyView)? = nil
     ) {
         _messages = messages
         self.inputView = inputView
@@ -249,6 +252,9 @@ public extension ChatView {
         self.shouldShowGroupChatHeaders = shouldShowGroupChatHeaders
         self.reachedTop = reachedTop
         _scrollTo = scrollTo
+        if let headerView {
+            self.headerView = headerView
+        }
     }
 }
 
